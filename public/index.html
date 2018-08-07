@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <base href="/">
+    <meta charset="UTF-8">    
+    <title>USUÁRIOS</title>
+    <link rel="stylesheet" href="stylesheets/homestyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">  
+    <link type="text/css" rel="stylesheet" href="vendor/jsgrid-1.5.3/jsgrid.min.css" />
+    <link type="text/css" rel="stylesheet" href="vendor/jsgrid-1.5.3/jsgrid-theme.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1"
+        crossorigin="anonymous">  
+</head>
+<body ng-app='crudusuarios'>
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0"  href ng-href="/">CRUD USUÁRIOS</a>                
+    </nav>
+    <div class="container-fluid" ng-controller="LayoutController">
+       <div class="row">
+            <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                    <div class="sidebar-sticky">
+                        <ul class="nav flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href ng-click="changeView('\\')">                                    
+                                    USUÁRIOS                               
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href ng-click="changeView('\CadastrarUsuario')">                                    
+                                    CADASTRAR USUÁRIO                                    
+                                </a>                                
+                            </li>                            
+                        </ul>
+                    </div>
+                </nav>                                                                
+                <main role="main" class="col-md-10 ml-sm-auto col-lg-10 pt-3 px-4">
+                    <div ng-view></div> 
+                </main>                          
+       </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngMask/3.1.1/ngMask.min.js"></script>
+    <script type="text/javascript" src="vendor/jsgrid-1.5.3/jsgrid.min.js"></script>
+    <script src="js/bootbox.min.js"></script>
+    <script src="core.js"></script>
+</body>
+
+</html>

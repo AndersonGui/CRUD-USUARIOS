@@ -1,0 +1,68 @@
+<h1>{{ modoEdicao ? 'EDITAR USUÁRIO' : 'CADASTRAR USUÁRIO' }}</h1>
+<hr>
+<div class="row"><div class="col-lg-5 col-md-6">
+
+    <form name="formUsuario" ng-submit="salvarUsuario()" novalidate>
+
+        <div class="row form-group" ng-class="{ 'text-danger' : formUsuario.Nome.$invalid && !formUsuario.Nome.$pristine }">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Nome">Nome</label>
+                <input placeholder="Digite o nome do usuário" required ng-class="{'is-invalid':formUsuario.Nome.$error.required && formUsuario.Nome.$touched}" ng-model="Usuario.Nome" class="form-control" type="text" maxlength="30" id="Nome" name="Nome" >
+                <p ng-show="formUsuario.Nome.$invalid && !formUsuario.Nome.$pristine" class="form-text text-danger">Campo Obrigatório.</p>
+            </div>            
+        </div>
+
+        <div class="row form-group" ng-class="{ 'text-danger' : formUsuario.Sobrenome.$invalid && !formUsuario.Sobrenome.$pristine }">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Sobrenome">Sobrenome</label>
+                <input placeholder="Digite o primeiro nome do usuário" placeholder="Digite o sobrenome do usuário" required ng-class="{'is-invalid':formUsuario.Sobrenome.$error.required && formUsuario.Sobrenome.$touched}"  ng-model="Usuario.Sobrenome" class="form-control" type="text" maxlength="30" id="Sobrenome" name="Sobrenome" >
+                <p ng-show="formUsuario.Sobrenome.$invalid && !formUsuario.Sobrenome.$pristine" class="form-text text-danger">Campo Obrigatório.</p>
+            </div>
+        </div>
+
+        <div class="row form-group" ng-class="{ 'text-danger' : formUsuario.Email.$invalid && !formUsuario.Email.$pristine }">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Email">Email</label>
+                <input placeholder="Digite um email válido" required ng-class="{'is-invalid':(formUsuario.Email.$error.required || formUsuario.Email.$error.email) && formUsuario.Email.$touched}" ng-disabled="modoEdicao" ng-model="Usuario.Email" class="form-control" type="email" maxlength="30" id="Email" name="Email">
+                <p ng-show="formUsuario.Email.$error.required && !formUsuario.Email.$pristine" class="form-text text-danger">Campo Obrigatório</p>
+                <p ng-show="formUsuario.Email.$error.email && !formUsuario.Email.$pristine" class="form-text text-danger">Digite um email valido</p>                
+            </div>
+        </div>
+
+        <div class="row form-group" ng-class="{ 'text-danger' : formUsuario.Cpf.$invalid && !formUsuario.Cpf.$pristine }">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Cpf">CPF</label>
+                <input mask="999.999.999-99" placeholder="Digite o CPF do usuarío"  required ng-class="{'is-invalid':(formUsuario.Cpf.$error.required || formUsuario.Cpf.$error.minlength) && formUsuario.Cpf.$touched}" ng-minlength="14" ng-model="Usuario.Cpf" class="form-control" type="text" maxlength="14" id="Cpf" name="Cpf">
+                <p ng-show="formUsuario.Cpf.$error.required && !formUsuario.Cpf.$pristine" class="form-text text-danger">Campo Obrigatório</p>
+                <p ng-show="formUsuario.Cpf.$error.minlength && !formUsuario.Cpf.$pristine" class="form-text text-danger">Digite CPF completo</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Telefone">Telefone</label>
+                <input  mask="(99) 9?9999-9999" placeholder="Digite um telefone válido (Opcional)" ng-model="Usuario.Telefone" class="form-control" type="text" maxlength="30" id="Telefone" name="Telefone">
+            </div>
+        </div>
+
+        <div class="row form-group" ng-class="{ 'text-danger' : formUsuario.DataNascimento.$invalid && !formUsuario.DataNascimento.$pristine }">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="codigo">Data Nascimento</label>
+                <input required ng-class="{'is-invalid':(formUsuario.DataNascimento.$error.required || formUsuario.DataNascimento.$error.date) && formUsuario.DataNascimento.$touched}"   ng-model="Usuario.DataNascimento" class="form-control" type="date" maxlength="30" id="DataNascimento" name="DataNascimento">
+                <p ng-show="formUsuario.DataNascimento.$error.required && !formUsuario.DataNascimento.$pristine" class="form-text text-danger">Campo Obrigatório</p>
+                <p ng-show="formUsuario.DataNascimento.$error.date && !formUsuario.DataNascimento.$pristine" class="form-text text-danger">Informe uma data válida</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label class="font-weight-bold" for="Status">Status</label>
+                <select ng-model="Usuario.Status" class="custom-select d-block w-100" id="Status" name="Status">
+                    <option>Ativo</option>
+                    <option>Inativo</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-success" ng-disabled="formUsuario.$invalid" >Salvar Usuário</button>        
+    </form>        
+</div>

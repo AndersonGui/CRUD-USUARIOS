@@ -1,0 +1,35 @@
+<h1>USUÁRIOS</h1>
+<hr>
+<p>
+    <a class="btn btn-info" data-toggle="collapse" href="#filtros" role="button" aria-expanded="false" aria-controls="collapseExample">
+        FILTROS
+    </a>
+</p>
+<div class="collapse" id="filtros">
+    <div class="card card-body">
+        <h3>Pesquisar Usuário</h3>
+        <form>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="font-weight-bold" for="codigo">Email</label>
+                    <input ng-model="Filtro.Email" class="form-control" type="text" maxlength="30" id="Email" name="Email">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <label class="font-weight-bold" for="status">Status</label>
+                    <select ng-model="Filtro.Status" class="custom-select d-block w-100" id="Status" name="Status">
+                        <option>Todos</option>
+                        <option>Ativo</option>
+                        <option>Inativo</option>
+                    </select>
+                </div>
+            </div>
+            <button ng-click="pesquisarUsuarios()" class="btn btn-success">Pesquisar Usuários</button>
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+
+<div id='gridusuarios'></div>
