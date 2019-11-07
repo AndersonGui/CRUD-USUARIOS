@@ -1,11 +1,10 @@
 const Sequelize = require('sequelize');
 const Op = Sequelize.Op;
-
-var Usuario = require('../models/Usuario');
+const { Usuario } = require('../database/models');
 
 class UsuarioService {
     static async BuscarTodosUsuarios(){
-        try{
+        try{            
             let usuarios = await Usuario.findAll();    
             return usuarios;
         }catch(error){

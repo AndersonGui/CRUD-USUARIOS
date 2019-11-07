@@ -1,15 +1,15 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var expressValidator = require('express-validator');
-var bodyParser = require('body-parser')
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const expressValidator = require('express-validator');
+const bodyParser = require('body-parser')
 
-var indexRouter = require('./routes/index');
-var usuarioRouter = require('./routes/usuario');
+const indexRouter = require('./routes/index');
+const usuarioRouter = require('./routes/usuario');
 
-var app = express();
+const app = express();
 app.use(express.static(__dirname + '\\public'));
 
 // view engine setup
@@ -25,12 +25,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/api/usuario', usuarioRouter);
-
-
-var router = express.Router();
-var path = require('path');
-
-// router.use('/', express.static('app', { redirect: false }));
 
 app.get('*', function(req, res) {
   res.sendFile('./public/index.html',{"root": __dirname}); // load the single view file (angular will handle the page changes on the front-end)
